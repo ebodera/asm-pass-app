@@ -23,6 +23,7 @@ class TransitionController: UIViewController {
         super.viewDidLoad()
         
         transitionView.delegate = self
+        transitionView.setUser(newUser: user2)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

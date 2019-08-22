@@ -17,6 +17,8 @@ class TransitionView: UIView {
     var eventsTable: UITableView!
     var eventDetails: EventDetailsView!
     
+    var user: [String: String]!
+    
     weak var delegate: TransitionViewDelegate?
 
     override init(frame: CGRect) {
@@ -29,6 +31,12 @@ class TransitionView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    // MARK:- Set User
+    
+    func setUser(newUser: [String: String]) {
+        user = newUser
     }
     
     // MARK:- QR Code Generation
@@ -53,6 +61,14 @@ class TransitionView: UIView {
         securityCodeView.layer.shadowRadius = 8.0
         securityCodeView.layer.shadowOpacity = 0.12
         securityCodeView.layer.shadowOffset = CGSize(width: 0, height: 6)
+        if loginFormView.emailField.text == "john.doe@example.com" {
+            user = user2
+            securityCodeView.signInButton.addTarget(self, action: #selector(showEventsDashboard(_:)), for: .touchUpInside)
+        }
+        if loginFormView.emailField.text == "jane.doe@example.com" {
+            user = user1
+            securityCodeView.signInButton.addTarget(self, action: #selector(showQRCode(_:)), for: .touchUpInside)
+        }
         self.addSubview(securityCodeView)
         securityCodeView.easy.layout([Height(250), Left(25).to(self), Right(25).to(self), CenterY(UIScreen.main.bounds.height).to(self)])
         UIView.animate(withDuration: 0.2, animations: {
@@ -61,7 +77,7 @@ class TransitionView: UIView {
             self.guestSignInButton.alpha = 0.0
             self.loginFormView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
         }) { (completion) in
-            
+            //
         }
     }
     
@@ -79,8 +95,8 @@ class TransitionView: UIView {
             self.primaryHeaderLabel.alpha = 0.0
             self.guestSignInButton.alpha = 0.0
             self.secondaryHeaderLabel.alpha = 1.0
-            if sender.tag == 0 {
-                self.loginFormView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
+            if sender.tag == 3 {
+                self.securityCodeView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
             } else if sender.tag == 1 {
                 self.eventsTable.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
                 self.addEventButton.alpha = 0.0
@@ -88,8 +104,8 @@ class TransitionView: UIView {
             }
         }) { (completion) in
             UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 5.0, initialSpringVelocity: 5.0, options: UIView.AnimationOptions.curveEaseInOut, animations: {
-                if sender.tag == 0 {
-                    self.loginFormView.removeFromSuperview()
+                if sender.tag == 3 {
+                    self.securityCodeView.removeFromSuperview()
                 } else if sender.tag == 1 {
                     self.eventsTable.removeFromSuperview()
                 }
@@ -102,7 +118,7 @@ class TransitionView: UIView {
     }
     
     @objc func showEventsDashboard(_ sender: UIButton) {
-        if (sender.tag == 0 || sender.tag == 1) {
+        if (sender.tag == 0 || sender.tag == 1 || sender.tag == 3) {
             setupEventsTableView()
         }
         delegate?.eventsTableShown()
@@ -121,6 +137,8 @@ class TransitionView: UIView {
                 self.viewQRCodeButton.alpha = 1.0
                 self.backButton.alpha = 0.0
                 self.eventDetails.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
+            } else if sender.tag == 3 {
+                self.securityCodeView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
             }
             self.eventsTable.transform = CGAffineTransform(translationX: 0, y: -(UIScreen.main.bounds.height))
         }) { (completion) in
@@ -129,6 +147,8 @@ class TransitionView: UIView {
                     self.qrView.removeFromSuperview()
                 } else if sender.tag == 2 {
                     self.eventDetails.removeFromSuperview()
+                } else if sender.tag == 3 {
+                    self.securityCodeView.removeFromSuperview()
                 }
             }, completion: { (completion) in
                 //

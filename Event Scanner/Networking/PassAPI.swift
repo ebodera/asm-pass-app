@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import Alamofire
 
 class PassAPI {
     
-    
+    func getListOfEvents() {
+//        let params: Parameters = [
+//
+//        ]
+//        Alamofire.request("https://asm-pass.herokuapp.com/api/v1/event", method: .get, parameters: <#T##Parameters?#>, encoding: <#T##ParameterEncoding#>, headers: <#T##HTTPHeaders?#>)
+    }
     
 }
