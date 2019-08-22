@@ -1,0 +1,20 @@
+PODS:
+  - EasyPeasy (1.9.0)
+  - IQKeyboardManagerSwift (6.4.1)
+
+DEPENDENCIES:
+  - EasyPeasy
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - EasyPeasy
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  EasyPeasy: 19a84ef8f8bbcf925b9fecc29d1d78b7dab96718
+  IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
+
+PODFILE CHECKSUM: 71633731037b87060f4b805292c41b316ade27ef
+
+COCOAPODS: 1.5.2
