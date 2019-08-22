@@ -8,6 +8,7 @@
 
 import UIKit
 import EasyPeasy
+import SwiftOTP
 
 class TransitionView: UIView {
     
@@ -16,6 +17,9 @@ class TransitionView: UIView {
     var qrView: QRView!
     var eventsTable: UITableView!
     var eventDetails: EventDetailsView!
+    var totp = TOTP(secret: Data(base64Encoded: "YmFzZTMyc2VjcmV0MzIzMgo=")!)
+    
+    var api = PassAPI()
     
     var user: [String: String]!
     
@@ -53,6 +57,13 @@ class TransitionView: UIView {
         return nil
     }
     
+    @objc func generateOTP() {
+        let otpString = totp?.generate(time: Date())
+        let outputString = otpString! + " " + user["id"]!
+//        print(outputString)
+        qrView.qrCodeImage.image = generateQRCode(from: String(describing: outputString))
+    }
+    
     // MARK:- View Transitions
     
     @objc func showVerifyCode(_ sender: UIButton) {
@@ -61,12 +72,12 @@ class TransitionView: UIView {
         securityCodeView.layer.shadowRadius = 8.0
         securityCodeView.layer.shadowOpacity = 0.12
         securityCodeView.layer.shadowOffset = CGSize(width: 0, height: 6)
-        if loginFormView.emailField.text == "john.doe@example.com" {
-            user = user2
+        if loginFormView.emailField.text == "charles.frost@example.com" {
+            user = user1
             securityCodeView.signInButton.addTarget(self, action: #selector(showEventsDashboard(_:)), for: .touchUpInside)
         }
-        if loginFormView.emailField.text == "jane.doe@example.com" {
-            user = user1
+        if loginFormView.emailField.text == "jane.frost@example.com" {
+            user = user2
             securityCodeView.signInButton.addTarget(self, action: #selector(showQRCode(_:)), for: .touchUpInside)
         }
         self.addSubview(securityCodeView)
@@ -83,7 +94,12 @@ class TransitionView: UIView {
     
     @objc func showQRCode(_ sender: UIButton) {
         qrView = QRView()
-        qrView.qrCodeImage.image = generateQRCode(from: "ASM babyyy")
+        generateOTP()
+        var timer = Timer.scheduledTimer(timeInterval: 3.0,
+                                                           target: self,
+                                                           selector: #selector(generateOTP),
+                                                           userInfo: nil,
+                                                           repeats: true)
         qrView.layer.cornerRadius = 10.0
         qrView.layer.shadowRadius = 8.0
         qrView.layer.shadowOpacity = 0.12
@@ -112,7 +128,7 @@ class TransitionView: UIView {
                 self.qrView.transform = CGAffineTransform(translationX: 0, y: -(UIScreen.main.bounds.height))
                 self.viewEventsButton.alpha = 1.0
             }, completion: { (completion) in
-                //
+                
             })
         }
     }
@@ -121,20 +137,25 @@ class TransitionView: UIView {
         if (sender.tag == 0 || sender.tag == 1 || sender.tag == 3) {
             setupEventsTableView()
         }
+        api.getListOfEvents(userID: user["id"]!)
         delegate?.eventsTableShown()
         UIView.animate(withDuration: 0.2, animations: {
+            if self.user["type"] == "organizer" {
+                self.addEventButton.alpha = 1.0
+            }
             self.secondaryHeaderLabel.text = "Events"
             self.primaryHeaderLabel.alpha = 0.0
             self.guestSignInButton.alpha = 0.0
             self.secondaryHeaderLabel.alpha = 1.0
-            self.addEventButton.alpha = 1.0
             self.viewEventsButton.alpha = 0.0
             self.loginFormView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
             if sender.tag == 1 {
                 self.qrView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
                 self.viewQRCodeButton.alpha = 1.0
             } else if sender.tag == 2 {
-                self.viewQRCodeButton.alpha = 1.0
+                if self.user["type"] == "attendee" {
+                    self.viewQRCodeButton.alpha = 1.0
+                }
                 self.backButton.alpha = 0.0
                 self.eventDetails.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
             } else if sender.tag == 3 {
@@ -156,9 +177,18 @@ class TransitionView: UIView {
         }
     }
     
-    @objc func showEventDetails() {
+    @objc func showEventDetails(image: UIImage) {
         eventDetails = EventDetailsView()
-        eventDetails.setupViewWithQRScanner()
+        delegate?.eventDetailsShown()
+        switch user["type"] {
+        case "organizer":
+            eventDetails.setupViewWithQRScanner()
+        case "attendee":
+            eventDetails.setupView()
+        default:
+            break
+        }
+        eventDetails.eventImage.image = image
         self.addSubview(eventDetails)
         eventDetails.easy.layout([Width(UIScreen.main.bounds.width), Top(60).to(secondaryHeaderLabel, .bottom), Left(UIScreen.main.bounds.width).to(self), Bottom().to(self)])
         UIView.animate(withDuration: 0.2, animations: {
@@ -303,4 +333,5 @@ class TransitionView: UIView {
 
 protocol TransitionViewDelegate: class {
     func eventsTableShown()
+    func eventDetailsShown()
 }

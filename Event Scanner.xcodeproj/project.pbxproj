@@ -10,6 +10,7 @@
 		2A757228F855240334C87DD0 /* Pods_Event_ScannerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB95D250823671FE492F9E5 /* Pods_Event_ScannerUITests.framework */; };
 		315ADDDD230EF5060048CB40 /* SecurityCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315ADDDC230EF5060048CB40 /* SecurityCodeView.swift */; };
 		315ADDE1230EFBF40048CB40 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315ADDE0230EFBF40048CB40 /* Users.swift */; };
+		315ADDE3230F098E0048CB40 /* ScanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315ADDE2230F098E0048CB40 /* ScanController.swift */; };
 		31739C98230DB55D004C6377 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739C97230DB55D004C6377 /* AppDelegate.swift */; };
 		31739C9D230DB55D004C6377 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31739C9B230DB55D004C6377 /* Main.storyboard */; };
 		31739C9F230DB55E004C6377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31739C9E230DB55E004C6377 /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		2BE4041E03C9670F08DADB8C /* Pods-Event Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Scanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Event Scanner/Pods-Event Scanner.debug.xcconfig"; sourceTree = "<group>"; };
 		315ADDDC230EF5060048CB40 /* SecurityCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityCodeView.swift; sourceTree = "<group>"; };
 		315ADDE0230EFBF40048CB40 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		315ADDE2230F098E0048CB40 /* ScanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanController.swift; sourceTree = "<group>"; };
 		31739C94230DB55D004C6377 /* Event Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31739C97230DB55D004C6377 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31739C9C230DB55D004C6377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				31B69434230DDB19007D1F3B /* TransitionController.swift */,
+				315ADDE2230F098E0048CB40 /* ScanController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				31B6943C230DE240007D1F3B /* QRView.swift in Sources */,
 				31739CCB230DBE5E004C6377 /* Colors.swift in Sources */,
 				315ADDDD230EF5060048CB40 /* SecurityCodeView.swift in Sources */,
+				315ADDE3230F098E0048CB40 /* ScanController.swift in Sources */,
 				31B69438230DDCEE007D1F3B /* LoginFormView.swift in Sources */,
 				31B69442230E1575007D1F3B /* EventDetailsView.swift in Sources */,
 				31B69445230EEF8C007D1F3B /* PassAPI.swift in Sources */,

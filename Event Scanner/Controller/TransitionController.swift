@@ -12,6 +12,7 @@ import EasyPeasy
 class TransitionController: UIViewController {
     
     var transitionView = TransitionView()
+    var events: Array<[String: Any]> = []
     
     // MARK:- View Controller Lifecycle
     
@@ -24,10 +25,19 @@ class TransitionController: UIViewController {
         
         transitionView.delegate = self
         transitionView.setUser(newUser: user2)
+        transitionView.api.delegate = self
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    // MARK:- Scan QR Code
+    
+    @objc func openScanView() {
+        present(ScanController(), animated: true) {
+            //
+        }
     }
 }
 
@@ -40,16 +50,31 @@ extension TransitionController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventDashboardCell", for: indexPath) as! EventDashboardCell
+        if (indexPath.row % 2) == 0 {
+            cell.eventImage.image = UIImage(named: "Image1")?.withRenderingMode(.alwaysOriginal)
+        } else {
+            cell.eventImage.image = UIImage(named: "Image2")?.withRenderingMode(.alwaysOriginal)
+        }
+        if (transitionView.user["type"] == "organizer") { cell.statusIcon.alpha = 0.0 }
+//        cell.eventNameLabel.text = String(describing: events[indexPath.row]["title"])
+//        cell.timeLabel.text = String(describing: events[indexPath.row]["startdate"])
+//        cell.locationLabel.text = String(describing: events[indexPath.row]["location"])
+//        if
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        transitionView.showEventDetails()
+        if (indexPath.row % 2) == 0 {
+            transitionView.showEventDetails(image: (UIImage(named: "Image1")?.withRenderingMode(.alwaysOriginal))!)
+        } else {
+            transitionView.showEventDetails(image: (UIImage(named: "Image2")?.withRenderingMode(.alwaysOriginal))!)
+        }
     }
 }
 
@@ -57,8 +82,22 @@ extension TransitionController: UITableViewDelegate, UITableViewDataSource {
 
 extension TransitionController: TransitionViewDelegate {
     
+    func eventDetailsShown() {
+        transitionView.eventDetails.scanQRButton.addTarget(self, action: #selector(openScanView), for: .touchUpInside)
+    }
+    
+    
     func eventsTableShown() {
         transitionView.eventsTable.delegate = self
         transitionView.eventsTable.dataSource = self
     }
+}
+
+extension TransitionController: PassAPIDelegate {
+    
+    func didUpdateEvents() {
+        self.events = transitionView.api.events
+        self.transitionView.eventsTable.reloadData()
+    }
+    
 }

@@ -74,6 +74,8 @@ class EventDashboardCell: UITableViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.clipsToBounds = true
         image.layer.cornerRadius = 5
+        image.image = UIImage(named: "Image1")?.withRenderingMode(.alwaysOriginal)
+        image.contentMode = .scaleAspectFill
         image.layer.maskedCorners = [CACornerMask.layerMinXMinYCorner, CACornerMask.layerMaxXMinYCorner]
         return image
     }()

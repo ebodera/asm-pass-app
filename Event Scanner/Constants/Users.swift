@@ -9,13 +9,13 @@
 import Foundation
 
 let user1 = [
-    "id": "0000000000",
-    "type": "attendee",
-    "email": "jane.doe@example.com"
+    "id": "cfrost1",
+    "type": "organizer",
+    "email": "charles.frost@example.com"
 ]
 
 let user2 = [
-    "id": "0000000001",
-    "type": "organizer",
-    "email": "john.doe@example.com"
+    "id": "jfrost1",
+    "type": "attendee",
+    "email": "jane.frost@example.com"
 ]
