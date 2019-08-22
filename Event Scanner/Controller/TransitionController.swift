@@ -50,7 +50,7 @@ extension TransitionController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return events.count
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,11 +61,10 @@ extension TransitionController: UITableViewDelegate, UITableViewDataSource {
             cell.eventImage.image = UIImage(named: "Image2")?.withRenderingMode(.alwaysOriginal)
         }
         if (transitionView.user["type"] == "organizer") { cell.statusIcon.alpha = 0.0 }
+//        print(events[indexPath.row])
 //        cell.eventNameLabel.text = String(describing: events[indexPath.row]["title"])
 //        cell.timeLabel.text = String(describing: events[indexPath.row]["startdate"])
 //        cell.locationLabel.text = String(describing: events[indexPath.row]["location"])
-//        if
-        
         return cell
     }
     
