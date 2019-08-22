@@ -84,6 +84,7 @@ class TransitionView: UIView {
                 self.qrView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
                 self.viewQRCodeButton.alpha = 1.0
             } else if sender.tag == 2 {
+                self.viewQRCodeButton.alpha = 1.0
                 self.backButton.alpha = 0.0
                 self.eventDetails.transform = CGAffineTransform(translationX: UIScreen.main.bounds.width, y: 0)
             }

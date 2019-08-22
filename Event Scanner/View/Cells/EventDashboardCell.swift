@@ -96,7 +96,7 @@ class EventDashboardCell: UITableViewCell {
     
     let timeLabel: UILabel = {
         let label = UILabel()
-        label.text = "August 4th, 4PM-7PM"
+        label.text = "August 4th • 4PM-7PM"
         label.font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.semibold)
         label.textColor = UIColor(red: 162/255, green: 162/255, blue: 162/255, alpha: 1.0)
         label.numberOfLines = 0
