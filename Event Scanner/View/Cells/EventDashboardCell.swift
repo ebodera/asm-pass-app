@@ -44,6 +44,7 @@ class EventDashboardCell: UITableViewCell {
         contentView.addSubview(timeIcon)
         contentView.addSubview(locationLabel)
         contentView.addSubview(locationIcon)
+        contentView.addSubview(statusIcon)
         background.easy.layout([Height(240), Left(25).to(contentView), Right(25).to(contentView), Top(10).to(contentView), Bottom(10).to(contentView)])
         eventImage.easy.layout([Height(130), Left().to(background, .left), Right().to(background, .right), Top().to(background, .top)])
         eventNameLabel.easy.layout([Top(15).to(eventImage, .bottom), Left(20).to(background, .left), Right(20).to(background, .right)])
@@ -51,6 +52,7 @@ class EventDashboardCell: UITableViewCell {
         timeIcon.easy.layout([CenterY().to(timeLabel), Left(20).to(background, .left)])
         locationLabel.easy.layout([Top(6).to(timeLabel, .bottom), Left(25).to(eventNameLabel, .left), Right(20).to(background, .right)])
         locationIcon.easy.layout([CenterY().to(locationLabel), Left(21).to(background, .left)])
+        statusIcon.easy.layout([Top(15).to(background, .top), Right(15).to(background, .right)])
     }
     
     // MARK:- View Elements
@@ -116,5 +118,11 @@ class EventDashboardCell: UITableViewCell {
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    let statusIcon: UIImageView = {
+        let image = UIImageView(image: UIImage(named: "AddEventIcon")?.withRenderingMode(.alwaysOriginal))
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
     }()
 }

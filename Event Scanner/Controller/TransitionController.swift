@@ -46,6 +46,10 @@ extension TransitionController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventDashboardCell", for: indexPath) as! EventDashboardCell
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        transitionView.showEventDetails()
+    }
 }
 
 // MARK:- Transition View Delegate

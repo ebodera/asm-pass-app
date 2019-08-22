@@ -186,8 +186,8 @@
 				31739CCE230DBEE3004C6377 /* TransitionView.swift */,
 				31B69437230DDCEE007D1F3B /* LoginFormView.swift */,
 				31B6943B230DE240007D1F3B /* QRView.swift */,
-				31B6943D230DE6D9007D1F3B /* Cells */,
 				31B69441230E1575007D1F3B /* EventDetailsView.swift */,
+				31B6943D230DE6D9007D1F3B /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
