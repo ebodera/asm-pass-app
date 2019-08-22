@@ -39,7 +39,7 @@ class QRView: UIView {
         image.contentMode = .scaleAspectFit
         image.layer.cornerRadius = 10.0
         image.clipsToBounds = true
-        image.image = UIImage(named: "QRCode")?.withRenderingMode(.alwaysOriginal)
+//        image.image = UIImage(named: "QRCode")?.withRenderingMode(.alwaysOriginal)
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()

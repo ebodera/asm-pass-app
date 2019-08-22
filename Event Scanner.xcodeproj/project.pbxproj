@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A757228F855240334C87DD0 /* Pods_Event_ScannerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB95D250823671FE492F9E5 /* Pods_Event_ScannerUITests.framework */; };
+		315ADDDD230EF5060048CB40 /* SecurityCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315ADDDC230EF5060048CB40 /* SecurityCodeView.swift */; };
 		31739C98230DB55D004C6377 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739C97230DB55D004C6377 /* AppDelegate.swift */; };
 		31739C9D230DB55D004C6377 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31739C9B230DB55D004C6377 /* Main.storyboard */; };
 		31739C9F230DB55E004C6377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31739C9E230DB55E004C6377 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		31B6943C230DE240007D1F3B /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6943B230DE240007D1F3B /* QRView.swift */; };
 		31B6943F230DE6F7007D1F3B /* EventDashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6943E230DE6F7007D1F3B /* EventDashboardCell.swift */; };
 		31B69442230E1575007D1F3B /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B69441230E1575007D1F3B /* EventDetailsView.swift */; };
+		31B69445230EEF8C007D1F3B /* PassAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B69444230EEF8C007D1F3B /* PassAPI.swift */; };
 		70D1FF98D1F284B7B107F22C /* Pods_Event_ScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529E38717AE72BD0B2C0DB4A /* Pods_Event_ScannerTests.framework */; };
 		F123E42D6D0EF78E3D6BCC3D /* Pods_Event_Scanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7181F0E4DEED3C183EE170C8 /* Pods_Event_Scanner.framework */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		2BE4041E03C9670F08DADB8C /* Pods-Event Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Scanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Event Scanner/Pods-Event Scanner.debug.xcconfig"; sourceTree = "<group>"; };
+		315ADDDC230EF5060048CB40 /* SecurityCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityCodeView.swift; sourceTree = "<group>"; };
 		31739C94230DB55D004C6377 /* Event Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31739C97230DB55D004C6377 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31739C9C230DB55D004C6377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		31B6943B230DE240007D1F3B /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		31B6943E230DE6F7007D1F3B /* EventDashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDashboardCell.swift; sourceTree = "<group>"; };
 		31B69441230E1575007D1F3B /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
+		31B69444230EEF8C007D1F3B /* PassAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassAPI.swift; sourceTree = "<group>"; };
 		4AB95D250823671FE492F9E5 /* Pods_Event_ScannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_ScannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		529E38717AE72BD0B2C0DB4A /* Pods_Event_ScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_ScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602291BB7FF1A50D09AB0801 /* Pods-Event ScannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event ScannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Event ScannerUITests/Pods-Event ScannerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		31739C96230DB55D004C6377 /* Event Scanner */ = {
 			isa = PBXGroup;
 			children = (
+				31B69443230EEF6B007D1F3B /* Networking */,
 				31739CC5230DB722004C6377 /* Model */,
 				31B69436230DDCB0007D1F3B /* Controller */,
 				31739CC8230DBB23004C6377 /* View */,
@@ -185,6 +190,7 @@
 			children = (
 				31739CCE230DBEE3004C6377 /* TransitionView.swift */,
 				31B69437230DDCEE007D1F3B /* LoginFormView.swift */,
+				315ADDDC230EF5060048CB40 /* SecurityCodeView.swift */,
 				31B6943B230DE240007D1F3B /* QRView.swift */,
 				31B69441230E1575007D1F3B /* EventDetailsView.swift */,
 				31B6943D230DE6D9007D1F3B /* Cells */,
@@ -214,6 +220,14 @@
 				31B6943E230DE6F7007D1F3B /* EventDashboardCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		31B69443230EEF6B007D1F3B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				31B69444230EEF8C007D1F3B /* PassAPI.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		6E85CA19C5EAAB113EA15C58 /* Frameworks */ = {
@@ -413,13 +427,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Event Scanner/Pods-Event Scanner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftOTP/SwiftOTP.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftOTP.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -454,8 +474,10 @@
 				31B69435230DDB19007D1F3B /* TransitionController.swift in Sources */,
 				31B6943C230DE240007D1F3B /* QRView.swift in Sources */,
 				31739CCB230DBE5E004C6377 /* Colors.swift in Sources */,
+				315ADDDD230EF5060048CB40 /* SecurityCodeView.swift in Sources */,
 				31B69438230DDCEE007D1F3B /* LoginFormView.swift in Sources */,
 				31B69442230E1575007D1F3B /* EventDetailsView.swift in Sources */,
+				31B69445230EEF8C007D1F3B /* PassAPI.swift in Sources */,
 				31739CCF230DBEE3004C6377 /* TransitionView.swift in Sources */,
 				31B6943F230DE6F7007D1F3B /* EventDashboardCell.swift in Sources */,
 				31739C98230DB55D004C6377 /* AppDelegate.swift in Sources */,

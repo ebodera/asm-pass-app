@@ -12,6 +12,7 @@ import EasyPeasy
 class TransitionView: UIView {
     
     var loginFormView: LoginFormView!
+    var securityCodeView: SecurityCodeView!
     var qrView: QRView!
     var eventsTable: UITableView!
     var eventDetails: EventDetailsView!
@@ -30,10 +31,43 @@ class TransitionView: UIView {
         super.init(coder: aDecoder)
     }
     
+    // MARK:- QR Code Generation
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+        return nil
+    }
+    
     // MARK:- View Transitions
+    
+    @objc func showVerifyCode(_ sender: UIButton) {
+        securityCodeView = SecurityCodeView()
+        securityCodeView.layer.cornerRadius = 10.0
+        securityCodeView.layer.shadowRadius = 8.0
+        securityCodeView.layer.shadowOpacity = 0.12
+        securityCodeView.layer.shadowOffset = CGSize(width: 0, height: 6)
+        self.addSubview(securityCodeView)
+        securityCodeView.easy.layout([Height(250), Left(25).to(self), Right(25).to(self), CenterY(UIScreen.main.bounds.height).to(self)])
+        UIView.animate(withDuration: 0.2, animations: {
+            self.securityCodeView.transform = CGAffineTransform(translationX: 0, y: -(UIScreen.main.bounds.height))
+            self.primaryHeaderLabel.alpha = 0.0
+            self.guestSignInButton.alpha = 0.0
+            self.loginFormView.transform = CGAffineTransform(translationX: 0, y: UIScreen.main.bounds.height)
+        }) { (completion) in
+            
+        }
+    }
     
     @objc func showQRCode(_ sender: UIButton) {
         qrView = QRView()
+        qrView.qrCodeImage.image = generateQRCode(from: "ASM babyyy")
         qrView.layer.cornerRadius = 10.0
         qrView.layer.shadowRadius = 8.0
         qrView.layer.shadowOpacity = 0.12
@@ -148,7 +182,7 @@ class TransitionView: UIView {
         loginFormView.layer.shadowOpacity = 0.12
         loginFormView.layer.shadowOffset = CGSize(width: 0, height: 6)
         loginFormView.signInButton.tag = 0
-        loginFormView.signInButton.addTarget(self, action: #selector(showQRCode(_:)), for: .touchUpInside)
+        loginFormView.signInButton.addTarget(self, action: #selector(showVerifyCode(_:)), for: .touchUpInside)
         self.addSubview(loginFormView)
         loginFormView.easy.layout([Height(300), Left(25).to(self), Right(25).to(self), CenterY(60).to(self)])
     }

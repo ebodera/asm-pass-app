@@ -1,20 +1,32 @@
 PODS:
+  - Alamofire (4.8.2)
+  - CryptoSwift (1.0.0)
   - EasyPeasy (1.9.0)
   - IQKeyboardManagerSwift (6.4.1)
+  - SwiftOTP (1.0.0):
+    - CryptoSwift (>= 0.10.0)
 
 DEPENDENCIES:
+  - Alamofire
   - EasyPeasy
   - IQKeyboardManagerSwift
+  - SwiftOTP
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CryptoSwift
     - EasyPeasy
     - IQKeyboardManagerSwift
+    - SwiftOTP
 
 SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
   EasyPeasy: 19a84ef8f8bbcf925b9fecc29d1d78b7dab96718
   IQKeyboardManagerSwift: d2df660d0b8d64a15cb2537c9ff303213fa515b2
+  SwiftOTP: c3deebbc468b33fab479bb494d93eb5fb41ba3ed
 
-PODFILE CHECKSUM: 71633731037b87060f4b805292c41b316ade27ef
+PODFILE CHECKSUM: ccc1285fd61ac8b91fda19def6cd1e4647a60de0
 
 COCOAPODS: 1.5.2
