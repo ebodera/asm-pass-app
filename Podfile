@@ -9,6 +9,7 @@ target 'Event Scanner' do
 
   # Pods for Event Scanner
   pod 'EasyPeasy'
+  pod 'IQKeyboardManagerSwift'
 
   target 'Event ScannerTests' do
     inherit! :search_paths

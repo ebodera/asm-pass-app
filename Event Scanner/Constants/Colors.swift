@@ -9,4 +9,7 @@
 import Foundation
 import UIKit
 
-let primaryBlue = UIColor(red: 0/255, green: 115/255, blue: 255/255, alpha: 1.0)
+let primaryBlue = UIColor(red: 23/255, green: 132/255, blue: 214/255, alpha: 1.0)
+
+let darkGrayText = UIColor(red: 60/255, green: 60/255, blue: 60/255, alpha: 1.0)
+let lightGray = UIColor(red: 248/255, green: 248/255, blue: 248/255, alpha: 1.0)

@@ -9,14 +9,18 @@
 /* Begin PBXBuildFile section */
 		2A757228F855240334C87DD0 /* Pods_Event_ScannerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AB95D250823671FE492F9E5 /* Pods_Event_ScannerUITests.framework */; };
 		31739C98230DB55D004C6377 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739C97230DB55D004C6377 /* AppDelegate.swift */; };
-		31739C9A230DB55D004C6377 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739C99230DB55D004C6377 /* Login.swift */; };
 		31739C9D230DB55D004C6377 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31739C9B230DB55D004C6377 /* Main.storyboard */; };
 		31739C9F230DB55E004C6377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31739C9E230DB55E004C6377 /* Assets.xcassets */; };
 		31739CA2230DB55E004C6377 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31739CA0230DB55E004C6377 /* LaunchScreen.storyboard */; };
 		31739CAD230DB55E004C6377 /* Event_ScannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739CAC230DB55E004C6377 /* Event_ScannerTests.swift */; };
 		31739CB8230DB55E004C6377 /* Event_ScannerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739CB7230DB55E004C6377 /* Event_ScannerUITests.swift */; };
 		31739CCB230DBE5E004C6377 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739CCA230DBE5E004C6377 /* Colors.swift */; };
-		31739CCF230DBEE3004C6377 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739CCE230DBEE3004C6377 /* LoginView.swift */; };
+		31739CCF230DBEE3004C6377 /* TransitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31739CCE230DBEE3004C6377 /* TransitionView.swift */; };
+		31B69435230DDB19007D1F3B /* TransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B69434230DDB19007D1F3B /* TransitionController.swift */; };
+		31B69438230DDCEE007D1F3B /* LoginFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B69437230DDCEE007D1F3B /* LoginFormView.swift */; };
+		31B6943C230DE240007D1F3B /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6943B230DE240007D1F3B /* QRView.swift */; };
+		31B6943F230DE6F7007D1F3B /* EventDashboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B6943E230DE6F7007D1F3B /* EventDashboardCell.swift */; };
+		31B69442230E1575007D1F3B /* EventDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B69441230E1575007D1F3B /* EventDetailsView.swift */; };
 		70D1FF98D1F284B7B107F22C /* Pods_Event_ScannerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 529E38717AE72BD0B2C0DB4A /* Pods_Event_ScannerTests.framework */; };
 		F123E42D6D0EF78E3D6BCC3D /* Pods_Event_Scanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7181F0E4DEED3C183EE170C8 /* Pods_Event_Scanner.framework */; };
 /* End PBXBuildFile section */
@@ -42,7 +46,6 @@
 		2BE4041E03C9670F08DADB8C /* Pods-Event Scanner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Scanner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Event Scanner/Pods-Event Scanner.debug.xcconfig"; sourceTree = "<group>"; };
 		31739C94230DB55D004C6377 /* Event Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31739C97230DB55D004C6377 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		31739C99230DB55D004C6377 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		31739C9C230DB55D004C6377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		31739C9E230DB55E004C6377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31739CA1230DB55E004C6377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,7 +57,12 @@
 		31739CB7230DB55E004C6377 /* Event_ScannerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event_ScannerUITests.swift; sourceTree = "<group>"; };
 		31739CB9230DB55E004C6377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31739CCA230DBE5E004C6377 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		31739CCE230DBEE3004C6377 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		31739CCE230DBEE3004C6377 /* TransitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionView.swift; sourceTree = "<group>"; };
+		31B69434230DDB19007D1F3B /* TransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionController.swift; sourceTree = "<group>"; };
+		31B69437230DDCEE007D1F3B /* LoginFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.swift; sourceTree = "<group>"; };
+		31B6943B230DE240007D1F3B /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		31B6943E230DE6F7007D1F3B /* EventDashboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDashboardCell.swift; sourceTree = "<group>"; };
+		31B69441230E1575007D1F3B /* EventDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsView.swift; sourceTree = "<group>"; };
 		4AB95D250823671FE492F9E5 /* Pods_Event_ScannerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_ScannerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		529E38717AE72BD0B2C0DB4A /* Pods_Event_ScannerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_ScannerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		602291BB7FF1A50D09AB0801 /* Pods-Event ScannerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event ScannerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Event ScannerUITests/Pods-Event ScannerUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				31739CC5230DB722004C6377 /* Model */,
+				31B69436230DDCB0007D1F3B /* Controller */,
 				31739CC8230DBB23004C6377 /* View */,
 				31739CC6230DBAE7004C6377 /* View Model */,
 				31739CC9230DBE29004C6377 /* Constants */,
@@ -174,8 +183,11 @@
 		31739CC8230DBB23004C6377 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				31739CCC230DBEA5004C6377 /* Controller */,
-				31739CCD230DBEBB004C6377 /* UIView */,
+				31739CCE230DBEE3004C6377 /* TransitionView.swift */,
+				31B69437230DDCEE007D1F3B /* LoginFormView.swift */,
+				31B6943B230DE240007D1F3B /* QRView.swift */,
+				31B6943D230DE6D9007D1F3B /* Cells */,
+				31B69441230E1575007D1F3B /* EventDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,20 +200,20 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
-		31739CCC230DBEA5004C6377 /* Controller */ = {
+		31B69436230DDCB0007D1F3B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31739C99230DB55D004C6377 /* Login.swift */,
+				31B69434230DDB19007D1F3B /* TransitionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		31739CCD230DBEBB004C6377 /* UIView */ = {
+		31B6943D230DE6D9007D1F3B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				31739CCE230DBEE3004C6377 /* LoginView.swift */,
+				31B6943E230DE6F7007D1F3B /* EventDashboardCell.swift */,
 			);
-			path = UIView;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		6E85CA19C5EAAB113EA15C58 /* Frameworks */ = {
@@ -402,10 +414,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Event Scanner/Pods-Event Scanner-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/EasyPeasy/EasyPeasy.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EasyPeasy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -437,9 +451,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31739C9A230DB55D004C6377 /* Login.swift in Sources */,
+				31B69435230DDB19007D1F3B /* TransitionController.swift in Sources */,
+				31B6943C230DE240007D1F3B /* QRView.swift in Sources */,
 				31739CCB230DBE5E004C6377 /* Colors.swift in Sources */,
-				31739CCF230DBEE3004C6377 /* LoginView.swift in Sources */,
+				31B69438230DDCEE007D1F3B /* LoginFormView.swift in Sources */,
+				31B69442230E1575007D1F3B /* EventDetailsView.swift in Sources */,
+				31739CCF230DBEE3004C6377 /* TransitionView.swift in Sources */,
+				31B6943F230DE6F7007D1F3B /* EventDashboardCell.swift in Sources */,
 				31739C98230DB55D004C6377 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
